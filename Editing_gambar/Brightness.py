@@ -1,45 +1,37 @@
 from PIL import Image, ImageEnhance
-from IPython.display import display
 import os
 
-def adjust_brightness(image_path, output_path, level, show_image=True):
+def adjust_brightness(image_path,output_path,level):
     """Mengubah kecerahan gambar berdasarkan level yang ditentukan.
-    
-    Args:
+    args:
         image_path (str): Jalur gambar dari folder.
         output_path (str): Jalur gambar yang akan disimpan.
-        level (float): Tingkat kecerahan yang diinginkan (angka antara 0.0 dan 2.0).
-        show_image (bool): Menentukan apakah gambar hasil akan ditampilkan. Default adalah True.
-    """
+        level (str): Tingkat kecerahan yang diinginkan ('sangat gelap', 'gelap', 'normal', 'cerah', 'sangat cerah')."""
     
-    # Cek apakah level adalah angka (float)
-    if not isinstance(level, (int, float)):
-        print("Level kecerahan harus berupa angka.")
-        return
+    # Faktor kecerahan berdasarkan level yang ditentukan
+    brightness_factors = {
+        'sangat gelap': 0.2,
+        'gelap': 0.5,
+        'normal': 1.0,
+        'cerah': 1.5,
+        'sangat cerah': 2.0
+    }
+    
+   # Mendapatkan faktor kecerahan dari level yang diberikan
+    factor = brightness_factors.get(level.lower(), None)
 
-    factor = float(level)
+    # Menambahkan peringatan jika level tidak valid
+    if factor is None:
+        print(f"Level kecerahan '{level}' tidak dikenali. Menggunakan kecerahan 'normal'.")
+        factor = 1.0  # Default ke 'normal' jika level tidak valid
 
-    if factor < 0.0 or factor > 2.0:
-        print("Level kecerahan tidak valid. Menggunakan kecerahan 'normal' (1.0).")
-        factor = 1.0
-
+    # Cek apakah file gambar ada
     if not os.path.isfile(image_path):
         print(f"File gambar tidak ditemukan: {image_path}")
         return
 
-    image = Image.open(image_path)
-    enhancer = ImageEnhance.Brightness(image)
-    brightened_image = enhancer.enhance(factor)
-
-    brightened_image.save(output_path)
-    print(f"File disimpan di: {output_path}")
-
-    # Tampilkan gambar jika show_image adalah True
-    if show_image:
-        display(brightened_image)
-
-# Contoh penggunaan
-#adjust_brightness("/content/y.jpg", "/content/Brg.jpg", 0.4, show_image=True)
-
-# Cek file yang ada
-#!ls /content/
+    image = Image.open(image_path) # Membuka file gambar
+    enhancer = ImageEnhance.Brightness(image) # Menggunakan fungsi pencerahan dari pillow
+    brightened_image = enhancer.enhance(factor) #  Menentukan skala kecerahan gambar
+    brightened_image.save(output_path) # Menyimpan hasil di jalur output
+    brightened_image.show(output_path) # Menunjukkan hasil pencerahan gambar
