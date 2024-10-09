@@ -6,12 +6,28 @@ def adjust_brightness(image_path, output_path, level):
     args:
         image_path (str): Jalur gambar dari folder.
         output_path (str): Jalur gambar yang akan disimpan.
-        level (float): Tingkat kecerahan yang diinginkan (0.0 hingga 2.0)."""
+        level (float or str): Tingkat kecerahan yang diinginkan (angka atau string)."""
     
-    # Cek apakah level berada dalam rentang yang valid
-    if level < 0.0 or level > 2.0:
-        print("Level kecerahan harus antara 0.0 (sangat gelap) dan 2.0 (sangat cerah). Menggunakan kecerahan 'normal' (1.0).")
-        level = 1.0  # Default ke 'normal' jika level tidak valid
+    # Faktor kecerahan berdasarkan level yang ditentukan
+    brightness_factors = {
+        'sangat gelap': 0.2,
+        'gelap': 0.5,
+        'normal': 1.0,
+        'cerah': 1.5,
+        'sangat cerah': 2.0
+    }
+    
+    # Cek apakah level adalah angka (float)
+    if isinstance(level, (int, float)):
+        factor = float(level)
+    else:
+        # Mendapatkan faktor kecerahan dari level yang diberikan
+        factor = brightness_factors.get(level.lower(), None)
+
+    # Menambahkan peringatan jika level tidak valid
+    if factor is None or factor < 0.0 or factor > 2.0:
+        print("Level kecerahan tidak dikenali atau tidak valid. Menggunakan kecerahan 'normal' (1.0).")
+        factor = 1.0  # Default ke 'normal' jika level tidak valid
 
     # Cek apakah file gambar ada
     if not os.path.isfile(image_path):
@@ -20,10 +36,9 @@ def adjust_brightness(image_path, output_path, level):
 
     image = Image.open(image_path)  # Membuka file gambar
     enhancer = ImageEnhance.Brightness(image)  # Menggunakan fungsi pencerahan dari Pillow
-    brightened_image = enhancer.enhance(level)  # Menentukan skala kecerahan gambar
+    brightened_image = enhancer.enhance(factor)  # Menentukan skala kecerahan gambar
     brightened_image.save(output_path)  # Menyimpan hasil di jalur output
     brightened_image.show()  # Menunjukkan hasil pencerahan gambar
-
 
 #help(adjust_brightness)
 
