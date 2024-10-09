@@ -42,10 +42,9 @@ def flip_image(image_path, output_path, direction):
     except Exception as e:
         return(f"Terjadi kesalahan: {e}")
     
-help(flip_image)
+#help(flip_image)
 
-flip_image(
-    "C:\Users\LENOVO\Downloads\keindaahan alam semesta.jpg",
-    "C:\Users\LENOVO\Downloads\Ignition Teaser14.jpg",  
-    "vertikal"  
-)
+#flip_image(
+  #  "C:\Users\LENOVO\Downloads\keindaahan alam semesta.jpg",
+  #  "C:\Users\LENOVO\Downloads\Ignition Teaser14.jpg",  
+ #   "vertikal"  )
