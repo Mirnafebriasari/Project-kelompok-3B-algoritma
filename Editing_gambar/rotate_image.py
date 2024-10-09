@@ -1,6 +1,13 @@
 from PIL import Image
 
 def rotate_image(input_path,output_path,angle):
+    """
+    Memutar gambar dengan sudut yang diberikan dan menyimpan hasilnya.
+
+    input_path (str): Jalur gambar dari folder.
+    output_path (str): Jalur gambar yang akan disimpan.
+    angle (float): Sudut rotasi dalam derajat.
+    """
     try:
         # Membuka gambar
         image = Image.open(input_path)
