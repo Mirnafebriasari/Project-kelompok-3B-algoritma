@@ -37,9 +37,9 @@ def adjust_brightness(image_path, output_path, level):
             print("Proses dibatalkan.")
             return
 
-#help(adjust_brightness)
+    brightened_image.save(output_path)  # Menyimpan hasil di jalur output
+    brightened_image.show()  # Menunjukkan hasil pencerahan gambar
 
-#adjust_brightness(
- #   "C:\\Users\\Asus\\Documents\\y.jpg", # Buat backslash (\) menjadi double backslash (\\) agar path gambar dapat terbaca
-  #  "C:\\Users\\Asus\\Documents\\dkk.jpg", # Buat backslash (\) menjadi double backslash (\\) agar path gambar dapat terbaca
-   # "sangattt gelap" # Pilihan level yang tersedia: sangat gelap, gelap, normal, cerah, sangat cerah)
+# Contoh penggunaan
+# adjust_brightness("C:\\Users\\Asus\\Documents\\y.jpg", "C:\\Users\\Asus\\Documents\\dkk.jpg", 0.3)
+
