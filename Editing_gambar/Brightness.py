@@ -25,9 +25,5 @@ def adjust_brightness(image_path, output_path, level):
         print(f"File gambar tidak ditemukan: {image_path}")
         return
 
-    image = Image.open(image_path)  # Membuka file gambar
-    enhancer = ImageEnhance.Brightness(image)  # Menggunakan fungsi pencerahan dari Pillow
-    brightened_image = enhancer.enhance(factor)  # Menentukan skala kecerahan gambar
-    brightened_image.save(output_path)  # Menyimpan hasil di jalur output
-    brightened_image.show()  # Menunjukkan hasil pencerahan gambar
+   
 
