@@ -11,7 +11,7 @@ Brightness feature adalah paket Python yang digunakan untuk menyesuaikan kecerah
 ## cara penggunaan
 - image_path (str): Jalur gambar dari folder.
 - output_path (str): Jalur gambar yang akan disimpan.
-- level (str): Tingkat kecerahan yang diinginkan ('sangat gelap', 'gelap', 'normal', 'cerah', 'sangat cerah')."""
+- level (float): Tingkat kecerahan yang diinginkan (angka antara 0.0 dan 2.0).
 
 
 
@@ -56,7 +56,7 @@ Digunakan untuk memotong (crop) gambar.
 - input_path (str): jalur gambar dari folder
 - out_path (str): jalur gambar yang akan disimpan
 - left,top: koordinat parameter pemotongan gambar bagian kiri atas
-- right,bottom: koordinat parameter pemotongan gambar bagian kanan bawah"""
+- right,bottom: koordinat parameter pemotongan gambar bagian kanan bawah
 
 
 ## penambahanTeks
@@ -74,7 +74,7 @@ Digunakan untuk menambahkan teks ke dalam gambar.
         top: Koordinat penampatan teks dari atas
         nama_font (str): Nama font yang akan digunakan
         font_size: Ukuran font yang akan digunakan
-        warna_font: Warna font yang akan digunakan"""
+        warna_font: Warna font yang akan digunakan
 
 ## rotate_image.py
 Digunakan untuk memutar gambar pada sudut tertentu. 
