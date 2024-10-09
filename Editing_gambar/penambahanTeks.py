@@ -26,14 +26,13 @@ def tambahkan_teks(input_path,output_path,teks,left,top,nama_font,font_size,warn
     input_path.save(output_path) # Menyimpan hasil di output
     input_path.show(output_path) # Menunjukkan hasil gambar yang telah ditambahkan teks
 
-help(tambahkan_teks)
+#help(tambahkan_teks)
 
-tambahkan_teks(
-    "C:\\Users\\aisyah salsabila\Downloads\jay.jpg", # Buat backslash (\) menjadi double backslash (\\) agar path gambar dapat terbaca
-    "C:\\Users\\aisyah salsabila\Downloads\jaii.jpg", # Buat backslash (\) menjadi double backslash (\\) agar path gambar dapat terbaca
-    "apaa", #Tambahkan teks string
-    200,300, # Masukkan koordinat teks
-    "times.ttf", # font yang tersedia: "arial.ttf", "ALGER.TTF", "calibri.ttf", "cambriab.ttf", "times.ttf"
-    100, # Masukkan ukuran font
-    "red" # Masukkan warna font dalam bahasa inggris
-)
+#tambahkan_teks(
+  #  "C:\\Users\\aisyah salsabila\Downloads\jay.jpg", # Buat backslash (\) menjadi double backslash (\\) agar path gambar dapat terbaca
+  #  "C:\\Users\\aisyah salsabila\Downloads\jaii.jpg", # Buat backslash (\) menjadi double backslash (\\) agar path gambar dapat terbaca
+#"apaa", #Tambahkan teks string
+#200,300, # Masukkan koordinat teks
+# "times.ttf", # font yang tersedia: "arial.ttf", "ALGER.TTF", "calibri.ttf", "cambriab.ttf", "times.ttf"
+ #   100, # Masukkan ukuran font
+ #   "red" # Masukkan warna font dalam bahasa inggris)
