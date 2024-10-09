@@ -3,30 +3,22 @@ import os
 
 def adjust_brightness(image_path, output_path, level):
     """Mengubah kecerahan gambar berdasarkan level yang ditentukan.
-    args:
+    Args:
         image_path (str): Jalur gambar dari folder.
         output_path (str): Jalur gambar yang akan disimpan.
-        level (float or str): Tingkat kecerahan yang diinginkan (angka atau string)."""
-    
-    # Faktor kecerahan berdasarkan level yang ditentukan
-    brightness_factors = {
-        'sangat gelap': 0.2,
-        'gelap': 0.5,
-        'normal': 1.0,
-        'cerah': 1.5,
-        'sangat cerah': 2.0
-    }
-    
+        level (float): Tingkat kecerahan yang diinginkan (angka antara 0.0 dan 2.0)."""
+
     # Cek apakah level adalah angka (float)
-    if isinstance(level, (int, float)):
-        factor = float(level)
-    else:
-        # Mendapatkan faktor kecerahan dari level yang diberikan
-        factor = brightness_factors.get(level.lower(), None)
+    if not isinstance(level, (int, float)):
+        print("Level kecerahan harus berupa angka.")
+        return
+
+    # Mengkonversi level menjadi float
+    factor = float(level)
 
     # Menambahkan peringatan jika level tidak valid
-    if factor is None or factor < 0.0 or factor > 2.0:
-        print("Level kecerahan tidak dikenali atau tidak valid. Menggunakan kecerahan 'normal' (1.0).")
+    if factor < 0.0 or factor > 2.0:
+        print("Level kecerahan tidak valid. Harus antara 0.0 dan 2.0. Menggunakan kecerahan 'normal' (1.0).")
         factor = 1.0  # Default ke 'normal' jika level tidak valid
 
     # Cek apakah file gambar ada
@@ -37,8 +29,13 @@ def adjust_brightness(image_path, output_path, level):
     image = Image.open(image_path)  # Membuka file gambar
     enhancer = ImageEnhance.Brightness(image)  # Menggunakan fungsi pencerahan dari Pillow
     brightened_image = enhancer.enhance(factor)  # Menentukan skala kecerahan gambar
-    brightened_image.save(output_path)  # Menyimpan hasil di jalur output
-    brightened_image.show()  # Menunjukkan hasil pencerahan gambar
+
+    # Memeriksa apakah jalur output sudah ada
+    if os.path.isfile(output_path):
+        overwrite = input(f"File sudah ada di {output_path}. Apakah Anda ingin menimpa? (y/n): ")
+        if overwrite.lower() != 'y':
+            print("Proses dibatalkan.")
+            return
 
 #help(adjust_brightness)
 
