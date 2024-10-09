@@ -30,7 +30,7 @@ def convert_to_grayscale(input_image_path, output_image_path):
 
 help(convert_to_grayscale)
 
-convert_to_grayscale(
-    "C:\Users\ASUS\Documents\GrayscaleConverter\gambar_input.jpg",
-    "C:\Users\ASUS\Documents\GrayscaleConverter\gambar_output.jpg",
-)
+#convert_to_grayscale(
+#   "C:\Users\ASUS\Documents\GrayscaleConverter\gambar_input.jpg",
+#  "C:\Users\ASUS\Documents\GrayscaleConverter\gambar_output.jpg",
+#)
