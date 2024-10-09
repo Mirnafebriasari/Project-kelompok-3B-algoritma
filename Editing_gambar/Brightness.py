@@ -30,5 +30,6 @@ def adjust_brightness(image_path, output_path, level):
     brightened_image = enhancer.enhance(factor)  # Menentukan skala kecerahan gambar
     brightened_image.save(output_path)  # Menyimpan hasil di jalur output
     brightened_image.show()  # Menunjukkan hasil pencerahan gambar
+    print(f"File disimpan di: {output_path}")
 
 
