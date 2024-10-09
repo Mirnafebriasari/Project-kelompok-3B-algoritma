@@ -14,8 +14,7 @@ def rotate_image(input_path,output_path,angle):
     except Exception as e:
         return f"Terjadi kesalahan: {e}"
 
-rotate_image(
-    "C:\\Users\jpael\OneDrive\Pictures\Ignition Teaser.png", # Buat backslash (\) menjadi double backslash (\\) agar path gambar dapat terbaca
-    "C:\\Users\jpael\OneDrive\Pictures\Ignition Teaser14.png", # Buat backslash (\) menjadi double backslash (\\) agar path gambar dapat terbaca
-    90 # Masukkan angle rotasi dalam bentuk int atau float
-)
+#rotate_image(
+ #   "C:\\Users\jpael\OneDrive\Pictures\Ignition Teaser.png", # Buat backslash (\) menjadi double backslash (\\) agar path gambar dapat terbaca
+  #  "C:\\Users\jpael\OneDrive\Pictures\Ignition Teaser14.png", # Buat backslash (\) menjadi double backslash (\\) agar path gambar dapat terbaca
+   # 90 # Masukkan angle rotasi dalam bentuk int atau float)
