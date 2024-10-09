@@ -28,7 +28,7 @@ def convert_to_grayscale(input_image_path, output_image_path):
         # Menampilkan pesan kesalahan jika terjadi masalah
         print(f"Terjadi kesalahan: {e}")
 
-help(convert_to_grayscale)
+#help(convert_to_grayscale)
 
 #convert_to_grayscale(
 #   "C:\Users\ASUS\Documents\GrayscaleConverter\gambar_input.jpg",
