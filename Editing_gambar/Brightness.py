@@ -35,3 +35,10 @@ def adjust_brightness(image_path,output_path,level):
     brightened_image = enhancer.enhance(factor) #  Menentukan skala kecerahan gambar
     brightened_image.save(output_path) # Menyimpan hasil di jalur output
     brightened_image.show(output_path) # Menunjukkan hasil pencerahan gambar
+
+#help(adjust_brightness)
+
+#adjust_brightness(
+#    "C:\\Users\\Asus\\Documents\\y.jpg", # Buat backslash (\) menjadi double backslash (\\) agar path gambar dapat terbaca
+#    "C:\\Users\\Asus\\Documents\\dkk.jpg", # Buat backslash (\) menjadi double backslash (\\) agar path gambar dapat terbaca
+#    "sangattt gelap" # Pilihan level yang tersedia: sangat gelap, gelap, normal, cerah, sangat cerah)
