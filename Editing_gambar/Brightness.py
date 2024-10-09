@@ -25,5 +25,7 @@ def adjust_brightness(image_path, output_path, level):
         print(f"File gambar tidak ditemukan: {image_path}")
         return
 
-   
+    image = Image.open(image_path)
+    enhancer = ImageEnhance.Brightness(image)
+    brightened_image = enhancer.enhance(factor)
 
